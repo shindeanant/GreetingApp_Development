@@ -13,5 +13,9 @@ public class GreetingService implements IGreetingService {
     public Greeting greetingMessage() {
         return new Greeting(counter.incrementAndGet(), String.format(template));
     }
+    @Override
+    public String greetingMessageByName(User user) {
+        return ("Hello " + user.getFirstName() + " " + user.getLastName());
+    }
     
 }

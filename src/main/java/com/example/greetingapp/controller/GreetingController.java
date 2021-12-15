@@ -4,8 +4,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import com.example.greetingapp.model.Greeting;
 import com.example.greetingapp.service.IGreetingService;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,6 +38,15 @@ public class GreetingController {
         return greetingService.greetingMessage();
 
     }
+
+
+    @PostMapping("/greeting")
+    public String greetingMessage(@RequestBody User user) {
+        return greetingService.greetingMessageByName(user);
+    }
+    
+   
+    
 }
     
    
